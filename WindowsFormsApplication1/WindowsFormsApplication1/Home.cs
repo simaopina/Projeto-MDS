@@ -26,7 +26,21 @@ namespace WindowsFormsApplication1
 
         private void btnMarcarConsulta_Click(object sender, EventArgs e)
         {
-            
+            Marcar_consulta F1frm = new Marcar_consulta();
+            F1frm.Show();
+            Hide();
+        }
+
+        private void btnRemarcarConsultas_Click(object sender, EventArgs e)
+        {
+            Remarcar_consulta F2frm = new  Remarcar_consulta();
+            F2frm.Show();
+            Hide();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
