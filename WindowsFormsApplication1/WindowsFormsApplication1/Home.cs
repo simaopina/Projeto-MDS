@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
 
         private void btnSair_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
     }
 }
