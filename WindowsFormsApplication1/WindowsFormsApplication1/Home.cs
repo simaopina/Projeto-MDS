@@ -16,5 +16,17 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        private void btnInserirMedico_Click(object sender, EventArgs e)
+        {
+            Inserir_Medico Ifrm = new Inserir_Medico();
+            Ifrm.Show();
+            Hide();
+        }
+
+        private void btnMarcarConsulta_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

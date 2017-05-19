@@ -64,6 +64,7 @@
             this.btnMarcarConsulta.TabIndex = 3;
             this.btnMarcarConsulta.Text = "Marcar Consulta";
             this.btnMarcarConsulta.UseVisualStyleBackColor = true;
+            this.btnMarcarConsulta.Click += new System.EventHandler(this.btnMarcarConsulta_Click);
             // 
             // btnInserirMedico
             // 
@@ -73,6 +74,7 @@
             this.btnInserirMedico.TabIndex = 4;
             this.btnInserirMedico.Text = "Inserir Médico";
             this.btnInserirMedico.UseVisualStyleBackColor = true;
+            this.btnInserirMedico.Click += new System.EventHandler(this.btnInserirMedico_Click);
             // 
             // Home
             // 
