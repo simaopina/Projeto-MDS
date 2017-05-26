@@ -9,12 +9,13 @@ namespace WindowsFormsApplication1
     public class Medico
     {
         public string Nome { get; set; }
+        public string Especialidade { get; set; }
 
-
-        public string Especialidade;
-        public int _NIF;
-        public DateTime _inicio;
-        public DateTime _fim;
+        //private string _nome;
+        private string _especialidade;
+        private int _NIF;
+        private DateTime _inicio;
+        private DateTime _fim;
 
         public int NIF
         {
@@ -47,11 +48,24 @@ namespace WindowsFormsApplication1
             }
         }
 
+
+        public Medico(string nome, string especialidade, int _NIF, DateTime _inicio, DateTime _fim)
+        {
+            Nome = nome;
+            Especialidade = especialidade;
+            NIF = _NIF;
+            Inicio = _inicio;
+            Fim = _fim;
+
+        }
+
+        public override string ToString()
+        {
+            return Inicio.ToString() + Fim.ToString();
+        }
+
     }
     
-
-
-
 
     }
 
