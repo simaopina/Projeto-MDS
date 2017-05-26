@@ -118,6 +118,10 @@
             "Cardiologia",
             "Dentista"});
             this.cbxEspecialidade.FormattingEnabled = true;
+            this.cbxEspecialidade.Items.AddRange(new object[] {
+            "Cardiologia",
+            "Oftalmologia",
+            "Psiquiatria"});
             this.cbxEspecialidade.Location = new System.Drawing.Point(176, 122);
             this.cbxEspecialidade.Name = "cbxEspecialidade";
             this.cbxEspecialidade.Size = new System.Drawing.Size(221, 21);
@@ -198,6 +202,7 @@
             this.datetimeInicio.Name = "datetimeInicio";
             this.datetimeInicio.Size = new System.Drawing.Size(106, 20);
             this.datetimeInicio.TabIndex = 32;
+            this.datetimeInicio.Value = new System.DateTime(2017, 5, 26, 0, 0, 0, 0);
             // 
             // datetimeFim
             // 
@@ -207,6 +212,7 @@
             this.datetimeFim.Name = "datetimeFim";
             this.datetimeFim.Size = new System.Drawing.Size(125, 20);
             this.datetimeFim.TabIndex = 33;
+            this.datetimeFim.Value = new System.DateTime(2017, 5, 26, 0, 0, 0, 0);
             // 
             // label10
             // 
@@ -235,6 +241,7 @@
             this.listVMedico.Size = new System.Drawing.Size(526, 105);
             this.listVMedico.TabIndex = 53;
             this.listVMedico.UseCompatibleStateImageBehavior = false;
+            this.listVMedico.View = System.Windows.Forms.View.List;
             // 
             // Inserir_Medico
             // 

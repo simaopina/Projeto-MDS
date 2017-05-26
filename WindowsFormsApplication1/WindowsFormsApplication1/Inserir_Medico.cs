@@ -29,6 +29,16 @@ namespace WindowsFormsApplication1
             Close();
         }
 
+        public void SetMyCustomFormat()
+        {
+            datetimeInicio.Format = DateTimePickerFormat.Custom;
+            datetimeInicio.CustomFormat = "hh:mm";
+            datetimeFim.Format = DateTimePickerFormat.Custom;
+            datetimeFim.CustomFormat = "hh:mm";
+        }
+
+
+
         private void btnInserir_Click(object sender, EventArgs e)
         {
             string Nome = tbxNome.Text;
@@ -46,8 +56,9 @@ namespace WindowsFormsApplication1
                 Fim
             );
             ListaMedico.Add(medico);
-
             RefreshCampos();
+            RefreshListaMedicos();
+
         }
 
         private void RefreshCampos()
