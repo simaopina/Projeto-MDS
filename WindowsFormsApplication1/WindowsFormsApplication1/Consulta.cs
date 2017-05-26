@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Consulta
+    public class Consulta
     {
+        public string Nome_Paciente { get; set; }
+        public DateTime Dia { get; set; }
+        public DateTime Hora { get; set; }
+        public string Especialidade { get; set; }
+
+        public Medico Medico { get; set; }
+        
     }
 }

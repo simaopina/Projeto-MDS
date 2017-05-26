@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consulta.cs" />
     <Compile Include="Marcar Consulta.cs">
       <SubType>Form</SubType>
     </Compile>
