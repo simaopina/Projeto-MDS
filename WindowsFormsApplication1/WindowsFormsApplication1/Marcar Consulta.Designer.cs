@@ -46,6 +46,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.listVConsultas = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // button1
@@ -207,11 +212,39 @@
             // 
             // listVConsultas
             // 
+            this.listVConsultas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
             this.listVConsultas.Location = new System.Drawing.Point(16, 238);
             this.listVConsultas.Name = "listVConsultas";
             this.listVConsultas.Size = new System.Drawing.Size(514, 97);
             this.listVConsultas.TabIndex = 53;
             this.listVConsultas.UseCompatibleStateImageBehavior = false;
+            this.listVConsultas.View = System.Windows.Forms.View.Details;
+            this.listVConsultas.SelectedIndexChanged += new System.EventHandler(this.listVConsultas_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Dia";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Hora";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Especialidade";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Medico";
             // 
             // Marcar_consulta
             // 
@@ -263,5 +296,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ListView listVConsultas;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

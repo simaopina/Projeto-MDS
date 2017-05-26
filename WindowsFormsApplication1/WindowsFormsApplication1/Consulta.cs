@@ -9,7 +9,7 @@ namespace WindowsFormsApplication1
     public class Consulta
     {
         public string Nome_Paciente { get; set; }
-        public DateTime Dia { get; set; }
+        public string Dia { get; set; }
         public DateTime Hora { get; set; }
         public string Especialidade { get; set; }
 
@@ -17,7 +17,7 @@ namespace WindowsFormsApplication1
 
 
 
-        public Consulta(string nome_paciente, DateTime dia, DateTime hora, string especialidade, Medico medico)
+        public Consulta(string nome_paciente, string dia, DateTime hora, string especialidade, Medico medico)
         {
             Nome_Paciente = nome_paciente;
             Dia = dia;
@@ -26,12 +26,12 @@ namespace WindowsFormsApplication1
             Medico = medico;
         }
 
-        public Consulta(string nome_paciente, DateTime dia, DateTime hora, string especialidade)
+        public Consulta(string nome_paciente, string dia, DateTime hora, string especialidade)
             : this(nome_paciente, dia, hora, especialidade, null) { }
 
         public override string ToString()
         {
-            return Hora.ToString() + Dia.ToString();          
+            return Nome_Paciente.ToString() + Dia.Substring(3, 2) + Hora.ToString() + Especialidade.ToString();          
         }
         
     }

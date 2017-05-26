@@ -22,6 +22,11 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             ListaConsulta = new List<Consulta>();
+
+            foreach (Consulta consulta in ListaConsulta)
+            {
+                listVConsultas.Items.Add(consulta.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace WindowsFormsApplication1
         private void btnInserir_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
-            DateTime dia = dateTimeDia.Value;
+            string dia = dateTimeDia.Text;
             DateTime hora = dateTimeHora.Value;
             string especialidade = cmbEsp.SelectedItem.ToString();
 
@@ -69,7 +74,7 @@ namespace WindowsFormsApplication1
         public void RefreshCampos()
         {
             txtNome.ResetText();
-            dateTimeDia.Value = DateTime.Now;
+            //dateTimeDia.Value = DateTime.Now;
             dateTimeHora.Value = DateTime.Now;
             cmbEsp.SelectedIndex = -1;
         }
@@ -84,17 +89,11 @@ namespace WindowsFormsApplication1
                 listVConsultas.Items.Add(list.ToString());
             }
         }
+
+        private void listVConsultas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 
-
-
-/*
-       public string Nome_Paciente { get; set; }
-       public DateTime Dia { get; set; }
-       public DateTime Hora { get; set; }
-       public string Especialidade { get; set; }
-
-    
-
-        */
