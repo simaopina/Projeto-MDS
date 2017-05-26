@@ -32,22 +32,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeDia = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeHora = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbMedico = new System.Windows.Forms.ComboBox();
+            this.cmbEsp = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listVConsultas = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // button1
@@ -88,40 +86,22 @@
             this.label2.TabIndex = 17;
             this.label2.Text = "Nome do paciente:";
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(158, 107);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 20);
-            this.textBox1.TabIndex = 18;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 233);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 106);
-            this.dataGridView1.TabIndex = 19;
+            this.txtNome.Location = new System.Drawing.Point(158, 107);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(354, 20);
+            this.txtNome.TabIndex = 18;
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(386, 204);
+            this.btnGuardar.Location = new System.Drawing.Point(437, 204);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 20;
-            this.btnGuardar.Text = "Inserir";
+            this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(467, 204);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 21;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnGuardar.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // label3
             // 
@@ -132,13 +112,13 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Dia:";
             // 
-            // dateTimePicker1
+            // dateTimeDia
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(158, 137);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
-            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimeDia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimeDia.Location = new System.Drawing.Point(158, 137);
+            this.dateTimeDia.Name = "dateTimeDia";
+            this.dateTimeDia.Size = new System.Drawing.Size(143, 20);
+            this.dateTimeDia.TabIndex = 23;
             // 
             // label4
             // 
@@ -149,13 +129,13 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Hora:";
             // 
-            // dateTimePicker2
+            // dateTimeHora
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(350, 137);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(162, 20);
-            this.dateTimePicker2.TabIndex = 25;
+            this.dateTimeHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimeHora.Location = new System.Drawing.Point(350, 137);
+            this.dateTimeHora.Name = "dateTimeHora";
+            this.dateTimeHora.Size = new System.Drawing.Size(162, 20);
+            this.dateTimeHora.TabIndex = 25;
             // 
             // label5
             // 
@@ -166,21 +146,25 @@
             this.label5.TabIndex = 26;
             this.label5.Text = "Médico:";
             // 
-            // comboBox1
+            // cmbMedico
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(350, 164);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 21);
-            this.comboBox1.TabIndex = 27;
+            this.cmbMedico.FormattingEnabled = true;
+            this.cmbMedico.Location = new System.Drawing.Point(350, 164);
+            this.cmbMedico.Name = "cmbMedico";
+            this.cmbMedico.Size = new System.Drawing.Size(162, 21);
+            this.cmbMedico.TabIndex = 27;
             // 
-            // comboBox2
+            // cmbEsp
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(158, 164);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(143, 21);
-            this.comboBox2.TabIndex = 28;
+            this.cmbEsp.FormattingEnabled = true;
+            this.cmbEsp.Items.AddRange(new object[] {
+            "Cardiologia",
+            "Oftalmologia",
+            "Psiquiatria"});
+            this.cmbEsp.Location = new System.Drawing.Point(158, 164);
+            this.cmbEsp.Name = "cmbEsp";
+            this.cmbEsp.Size = new System.Drawing.Size(143, 21);
+            this.cmbEsp.TabIndex = 28;
             // 
             // label6
             // 
@@ -214,40 +198,46 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("square deal", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(471, -1);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 64);
+            this.label10.Size = new System.Drawing.Size(124, 73);
             this.label10.TabIndex = 51;
             this.label10.Text = "CC";
+            // 
+            // listVConsultas
+            // 
+            this.listVConsultas.Location = new System.Drawing.Point(16, 238);
+            this.listVConsultas.Name = "listVConsultas";
+            this.listVConsultas.Size = new System.Drawing.Size(514, 97);
+            this.listVConsultas.TabIndex = 53;
+            this.listVConsultas.UseCompatibleStateImageBehavior = false;
             // 
             // Marcar_consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 347);
+            this.Controls.Add(this.listVConsultas);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbEsp);
+            this.Controls.Add(this.cmbMedico);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimeHora);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimeDia);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Marcar_consulta";
             this.Text = "Marcar Consulta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,20 +249,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimeDia;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimeHora;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbMedico;
+        private System.Windows.Forms.ComboBox cmbEsp;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ListView listVConsultas;
     }
 }
