@@ -16,7 +16,8 @@ namespace WindowsFormsApplication1
         public Medico Medico { get; set; }
 
 
-        public Consulta(string nome_paciente, string dia, string hora, string especialidade, Medico medico)
+
+        public Consulta(string nome_paciente, DateTime dia, DateTime hora, string especialidade, Medico medico)
         {
             Nome_Paciente = nome_paciente;
             Dia = dia;
@@ -25,12 +26,12 @@ namespace WindowsFormsApplication1
             Medico = medico;
         }
 
-        public Consulta(string nome_paciente, string dia, string hora, string especialidade)
+        public Consulta(string nome_paciente, DateTime dia, DateTime hora, string especialidade)
             : this(nome_paciente, dia, hora, especialidade, null) { }
 
         public override string ToString()
         {
-            return Hora.ToString();          
+            return Hora.ToString() + Dia.ToString();          
         }
         
     }
