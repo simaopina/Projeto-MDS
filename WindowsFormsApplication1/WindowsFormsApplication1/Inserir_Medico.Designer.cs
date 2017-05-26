@@ -160,6 +160,7 @@
             this.btnInserir.TabIndex = 16;
             this.btnInserir.Text = "Inserir";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnCancelar
             // 
@@ -198,7 +199,7 @@
             this.btnVoltar.TabIndex = 0;
             this.btnVoltar.Text = "<-";
             this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // label1
             // 
