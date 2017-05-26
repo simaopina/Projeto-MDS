@@ -40,9 +40,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnInserir = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridMedico = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,7 +48,7 @@
             this.datetimeFim = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridMedico)).BeginInit();
+            this.listVMedico = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // label2
@@ -111,6 +109,7 @@
             this.btnGerir.TabIndex = 10;
             this.btnGerir.Text = "Gerir";
             this.btnGerir.UseVisualStyleBackColor = true;
+            this.btnGerir.Click += new System.EventHandler(this.btnGerir_Click);
             // 
             // cbxEspecialidade
             // 
@@ -119,6 +118,10 @@
             "Cardiologia",
             "Dentista"});
             this.cbxEspecialidade.FormattingEnabled = true;
+            this.cbxEspecialidade.Items.AddRange(new object[] {
+            "Cardiologia",
+            "Oftalmologia",
+            "Psiquiatria"});
             this.cbxEspecialidade.Location = new System.Drawing.Point(176, 122);
             this.cbxEspecialidade.Name = "cbxEspecialidade";
             this.cbxEspecialidade.Size = new System.Drawing.Size(221, 21);
@@ -158,28 +161,9 @@
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(75, 23);
             this.btnInserir.TabIndex = 16;
-            this.btnInserir.Text = "Inserir";
+            this.btnInserir.Text = "Guardar";
             this.btnInserir.UseVisualStyleBackColor = true;
             this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(467, 200);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 17;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // dataGridMedico
-            // 
-            this.dataGridMedico.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridMedico.Location = new System.Drawing.Point(12, 229);
-            this.dataGridMedico.Name = "dataGridMedico";
-            this.dataGridMedico.Size = new System.Drawing.Size(530, 106);
-            this.dataGridMedico.TabIndex = 18;
             // 
             // label9
             // 
@@ -218,6 +202,7 @@
             this.datetimeInicio.Name = "datetimeInicio";
             this.datetimeInicio.Size = new System.Drawing.Size(106, 20);
             this.datetimeInicio.TabIndex = 32;
+            this.datetimeInicio.Value = new System.DateTime(2017, 5, 26, 0, 0, 0, 0);
             // 
             // datetimeFim
             // 
@@ -227,6 +212,7 @@
             this.datetimeFim.Name = "datetimeFim";
             this.datetimeFim.Size = new System.Drawing.Size(125, 20);
             this.datetimeFim.TabIndex = 33;
+            this.datetimeFim.Value = new System.DateTime(2017, 5, 26, 0, 0, 0, 0);
             // 
             // label10
             // 
@@ -248,18 +234,26 @@
             this.label11.TabIndex = 51;
             this.label11.Text = "CC";
             // 
+            // listVMedico
+            // 
+            this.listVMedico.Location = new System.Drawing.Point(16, 230);
+            this.listVMedico.Name = "listVMedico";
+            this.listVMedico.Size = new System.Drawing.Size(526, 105);
+            this.listVMedico.TabIndex = 53;
+            this.listVMedico.UseCompatibleStateImageBehavior = false;
+            this.listVMedico.View = System.Windows.Forms.View.List;
+            // 
             // Inserir_Medico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 347);
+            this.Controls.Add(this.listVMedico);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.datetimeFim);
             this.Controls.Add(this.datetimeInicio);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dataGridMedico);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -276,7 +270,6 @@
             this.Controls.Add(this.btnVoltar);
             this.Name = "Inserir_Medico";
             this.Text = "Inserir Médico";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridMedico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,9 +288,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnInserir;
-        private System.Windows.Forms.Button btnCancelar;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView dataGridMedico;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label1;
@@ -305,5 +296,6 @@
         private System.Windows.Forms.DateTimePicker datetimeFim;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ListView listVMedico;
     }
 }
