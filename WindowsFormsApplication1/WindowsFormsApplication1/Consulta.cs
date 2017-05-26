@@ -14,6 +14,24 @@ namespace WindowsFormsApplication1
         public string Especialidade { get; set; }
 
         public Medico Medico { get; set; }
+
+
+        public Consulta(string nome_paciente, string dia, string hora, string especialidade, Medico medico)
+        {
+            Nome_Paciente = nome_paciente;
+            Dia = dia;
+            Hora = hora;
+            Especialidade = especialidade;
+            Medico = medico;
+        }
+
+        public Consulta(string nome_paciente, string dia, string hora, string especialidade)
+            : this(nome_paciente, dia, hora, especialidade, null) { }
+
+        public override string ToString()
+        {
+            return Hora.ToString();          
+        }
         
     }
 }
