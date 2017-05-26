@@ -52,6 +52,7 @@
     <Compile Include="Marcar Consulta.Designer.cs">
       <DependentUpon>Marcar Consulta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Medico.cs" />
     <Compile Include="Remarcar consulta.cs">
       <SubType>Form</SubType>
     </Compile>
