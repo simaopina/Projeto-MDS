@@ -20,6 +20,8 @@ namespace WindowsFormsApplication1
             ListaMedico = new List<Medico>();
         }
 
+
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             Home Hfrm = new Home();
@@ -29,14 +31,20 @@ namespace WindowsFormsApplication1
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
+            string Nome = tbxNome.Text;
+            string Especialidade = cbxEspecialidade.Text;
+            int NIF = Convert.ToInt32(tbxNIF.Text);
+            DateTime Inicio = datetimeInicio.Value;
+            DateTime Fim = datetimeFim.Value;
+
             Medico medico = new Medico
-            {
-                Nome = tbxNome.Text,
-                Especialidade = cbxEspecialidade.Text,
-                NIF = Convert.ToInt32(tbxNIF.Text),
-                Inicio = datetimeInicio.Value,
-                Fim = datetimeFim.Value
-            };
+            (
+                Nome,
+                Especialidade,
+                NIF,
+                Inicio,
+                Fim
+            );
             ListaMedico.Add(medico);
 
             RefreshCampos();
