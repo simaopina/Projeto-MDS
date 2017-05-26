@@ -32,25 +32,25 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tbxNome = new System.Windows.Forms.TextBox();
+            this.tbxNIF = new System.Windows.Forms.TextBox();
+            this.btnGerir = new System.Windows.Forms.Button();
+            this.cbxEspecialidade = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnInserir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridMedico = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.datetimeInicio = new System.Windows.Forms.DateTimePicker();
+            this.datetimeFim = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMedico)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -89,40 +89,40 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Horário:";
             // 
-            // textBox1
+            // tbxNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(176, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 20);
-            this.textBox1.TabIndex = 6;
+            this.tbxNome.Location = new System.Drawing.Point(176, 94);
+            this.tbxNome.Name = "tbxNome";
+            this.tbxNome.Size = new System.Drawing.Size(286, 20);
+            this.tbxNome.TabIndex = 6;
             // 
-            // textBox3
+            // tbxNIF
             // 
-            this.textBox3.Location = new System.Drawing.Point(176, 151);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(286, 20);
-            this.textBox3.TabIndex = 8;
+            this.tbxNIF.Location = new System.Drawing.Point(176, 151);
+            this.tbxNIF.Name = "tbxNIF";
+            this.tbxNIF.Size = new System.Drawing.Size(286, 20);
+            this.tbxNIF.TabIndex = 8;
             // 
-            // button2
+            // btnGerir
             // 
-            this.button2.Location = new System.Drawing.Point(403, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(59, 21);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Gerir";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGerir.Location = new System.Drawing.Point(403, 122);
+            this.btnGerir.Name = "btnGerir";
+            this.btnGerir.Size = new System.Drawing.Size(59, 21);
+            this.btnGerir.TabIndex = 10;
+            this.btnGerir.Text = "Gerir";
+            this.btnGerir.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbxEspecialidade
             // 
-            this.comboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            this.cbxEspecialidade.AutoCompleteCustomSource.AddRange(new string[] {
             "Pediatria",
             "Cardiologia",
             "Dentista"});
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(176, 122);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(221, 21);
-            this.comboBox1.TabIndex = 11;
+            this.cbxEspecialidade.FormattingEnabled = true;
+            this.cbxEspecialidade.Location = new System.Drawing.Point(176, 122);
+            this.cbxEspecialidade.Name = "cbxEspecialidade";
+            this.cbxEspecialidade.Size = new System.Drawing.Size(221, 21);
+            this.cbxEspecialidade.TabIndex = 11;
             // 
             // label6
             // 
@@ -152,14 +152,14 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Inserir dados:";
             // 
-            // btnGuardar
+            // btnInserir
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(388, 200);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 16;
-            this.btnGuardar.Text = "Inserir";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnInserir.Location = new System.Drawing.Point(388, 200);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(75, 23);
+            this.btnInserir.TabIndex = 16;
+            this.btnInserir.Text = "Inserir";
+            this.btnInserir.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -171,14 +171,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // dataGridView1
+            // dataGridMedico
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 229);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 106);
-            this.dataGridView1.TabIndex = 18;
+            this.dataGridMedico.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dataGridMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridMedico.Location = new System.Drawing.Point(12, 229);
+            this.dataGridMedico.Name = "dataGridMedico";
+            this.dataGridMedico.Size = new System.Drawing.Size(530, 106);
+            this.dataGridMedico.TabIndex = 18;
             // 
             // label9
             // 
@@ -190,15 +190,15 @@
             this.label9.TabIndex = 31;
             this.label9.Text = "Lista de médicos";
             // 
-            // button1
+            // btnVoltar
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "<-";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnVoltar.Location = new System.Drawing.Point(13, 13);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(33, 29);
+            this.btnVoltar.TabIndex = 0;
+            this.btnVoltar.Text = "<-";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -209,21 +209,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Voltar ao menu";
             // 
-            // dateTimePicker1
+            // datetimeInicio
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(206, 177);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(106, 20);
-            this.dateTimePicker1.TabIndex = 32;
+            this.datetimeInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.datetimeInicio.Location = new System.Drawing.Point(206, 177);
+            this.datetimeInicio.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.datetimeInicio.Name = "datetimeInicio";
+            this.datetimeInicio.Size = new System.Drawing.Size(106, 20);
+            this.datetimeInicio.TabIndex = 32;
             // 
-            // dateTimePicker2
+            // datetimeFim
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(337, 177);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(125, 20);
-            this.dateTimePicker2.TabIndex = 33;
+            this.datetimeFim.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.datetimeFim.Location = new System.Drawing.Point(337, 177);
+            this.datetimeFim.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.datetimeFim.Name = "datetimeFim";
+            this.datetimeFim.Size = new System.Drawing.Size(125, 20);
+            this.datetimeFim.TabIndex = 33;
             // 
             // label10
             // 
@@ -238,10 +240,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("square deal", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(475, -5);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 64);
+            this.label11.Size = new System.Drawing.Size(124, 73);
             this.label11.TabIndex = 51;
             this.label11.Text = "CC";
             // 
@@ -252,28 +254,28 @@
             this.ClientSize = new System.Drawing.Size(554, 347);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.datetimeFim);
+            this.Controls.Add(this.datetimeInicio);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridMedico);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnInserir);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cbxEspecialidade);
+            this.Controls.Add(this.btnGerir);
+            this.Controls.Add(this.tbxNIF);
+            this.Controls.Add(this.tbxNome);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnVoltar);
             this.Name = "Inserir_Medico";
             this.Text = "Inserir Médico";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMedico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,22 +286,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox tbxNome;
+        private System.Windows.Forms.TextBox tbxNIF;
+        private System.Windows.Forms.Button btnGerir;
+        private System.Windows.Forms.ComboBox cbxEspecialidade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnCancelar;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridMedico;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker datetimeInicio;
+        private System.Windows.Forms.DateTimePicker datetimeFim;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
     }
