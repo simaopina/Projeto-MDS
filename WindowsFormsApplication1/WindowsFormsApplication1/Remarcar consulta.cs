@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
             {
             ListaConsulta[consultaSelected].Nome_Paciente = tbxNomepaciente.Text;
             ListaConsulta[consultaSelected].Hora = dateTHora.Value;
-            ListaConsulta[consultaSelected].Dia = dateTiDia.Text;
+            ListaConsulta[consultaSelected].Dia = dateTiDia.Value;
             ListaConsulta[consultaSelected].Especialidade = cbxEspecialidade.Text;
             ListaConsulta[consultaSelected].Medico = cbxMedico.Text;
 
@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
 
                 tbxNomepaciente.Text = ListaConsulta[consultaSelected].Nome_Paciente.ToString();
                 dateTHora.Value = ListaConsulta[consultaSelected].Hora;
-                dateTiDia.Text = ListaConsulta[consultaSelected].Dia;
+                dateTiDia.Value = ListaConsulta[consultaSelected].Dia;
                 cbxEspecialidade.Text = ListaConsulta[consultaSelected].Especialidade.ToString();
                 cbxMedico.Text = ListaConsulta[consultaSelected].Medico.ToString();
 
@@ -89,8 +89,10 @@ namespace WindowsFormsApplication1
             foreach (Consulta consulta in ListaConsulta)
             {
                 ListViewItem item = new ListViewItem(consulta.Nome_Paciente);
-                item.SubItems.Add(consulta.Dia);
+                item.SubItems.Add(consulta.Dia.ToShortDateString());
                 item.SubItems.Add(consulta.Hora.ToShortTimeString());
+                item.SubItems.Add(consulta.Especialidade);
+                item.SubItems.Add(consulta.Medico.ToString());
 
 
 
