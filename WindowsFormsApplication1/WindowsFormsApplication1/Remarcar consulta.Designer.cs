@@ -30,24 +30,28 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxEspecialidade = new System.Windows.Forms.ComboBox();
+            this.cbxMedico = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTHora = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTiDia = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxNomepaciente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.listVRemarcar = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label7
@@ -69,21 +73,21 @@
             this.label6.TabIndex = 44;
             this.label6.Text = "Especialidade:";
             // 
-            // comboBox2
+            // cbxEspecialidade
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(158, 157);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(143, 21);
-            this.comboBox2.TabIndex = 43;
+            this.cbxEspecialidade.FormattingEnabled = true;
+            this.cbxEspecialidade.Location = new System.Drawing.Point(158, 157);
+            this.cbxEspecialidade.Name = "cbxEspecialidade";
+            this.cbxEspecialidade.Size = new System.Drawing.Size(143, 21);
+            this.cbxEspecialidade.TabIndex = 43;
             // 
-            // comboBox1
+            // cbxMedico
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(350, 157);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(162, 21);
-            this.comboBox1.TabIndex = 42;
+            this.cbxMedico.FormattingEnabled = true;
+            this.cbxMedico.Location = new System.Drawing.Point(350, 157);
+            this.cbxMedico.Name = "cbxMedico";
+            this.cbxMedico.Size = new System.Drawing.Size(162, 21);
+            this.cbxMedico.TabIndex = 42;
             // 
             // label5
             // 
@@ -94,13 +98,13 @@
             this.label5.TabIndex = 41;
             this.label5.Text = "Médico:";
             // 
-            // dateTimePicker2
+            // dateTHora
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(350, 130);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(162, 20);
-            this.dateTimePicker2.TabIndex = 40;
+            this.dateTHora.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTHora.Location = new System.Drawing.Point(350, 130);
+            this.dateTHora.Name = "dateTHora";
+            this.dateTHora.Size = new System.Drawing.Size(162, 20);
+            this.dateTHora.TabIndex = 40;
             // 
             // label4
             // 
@@ -111,13 +115,13 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Hora:";
             // 
-            // dateTimePicker1
+            // dateTiDia
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(158, 130);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(143, 20);
-            this.dateTimePicker1.TabIndex = 38;
+            this.dateTiDia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTiDia.Location = new System.Drawing.Point(158, 130);
+            this.dateTiDia.Name = "dateTiDia";
+            this.dateTiDia.Size = new System.Drawing.Size(143, 20);
+            this.dateTiDia.TabIndex = 38;
             // 
             // label3
             // 
@@ -146,22 +150,14 @@
             this.btnGuardar.TabIndex = 35;
             this.btnGuardar.Text = "Inserir";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // dataGridView1
+            // tbxNomepaciente
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 226);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 106);
-            this.dataGridView1.TabIndex = 34;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(158, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 20);
-            this.textBox1.TabIndex = 33;
+            this.tbxNomepaciente.Location = new System.Drawing.Point(158, 100);
+            this.tbxNomepaciente.Name = "tbxNomepaciente";
+            this.tbxNomepaciente.Size = new System.Drawing.Size(354, 20);
+            this.tbxNomepaciente.TabIndex = 33;
             // 
             // label2
             // 
@@ -221,33 +217,69 @@
             this.label9.TabIndex = 50;
             this.label9.Text = "Clinica Cidadão";
             // 
+            // listVRemarcar
+            // 
+            this.listVRemarcar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listVRemarcar.Location = new System.Drawing.Point(13, 224);
+            this.listVRemarcar.Name = "listVRemarcar";
+            this.listVRemarcar.Size = new System.Drawing.Size(529, 111);
+            this.listVRemarcar.TabIndex = 51;
+            this.listVRemarcar.UseCompatibleStateImageBehavior = false;
+            this.listVRemarcar.View = System.Windows.Forms.View.Details;
+            this.listVRemarcar.SelectedIndexChanged += new System.EventHandler(this.listVRemarcar_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Dia";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Hora";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Especialidade";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Medico";
+            // 
             // Remarcar_consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 347);
+            this.Controls.Add(this.listVRemarcar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxEspecialidade);
+            this.Controls.Add(this.cbxMedico);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTHora);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTiDia);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxNomepaciente);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label8);
             this.Name = "Remarcar_consulta";
             this.Text = "Remarcar_consulta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Remarcar_consulta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,22 +289,27 @@
 
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxEspecialidade;
+        private System.Windows.Forms.ComboBox cbxMedico;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTHora;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTiDia;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxNomepaciente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListView listVRemarcar;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
