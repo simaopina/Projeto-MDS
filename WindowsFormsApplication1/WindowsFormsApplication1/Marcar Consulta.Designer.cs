@@ -229,6 +229,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 106;
             // 
             // columnHeader2
             // 
@@ -241,10 +242,12 @@
             // columnHeader4
             // 
             this.columnHeader4.Text = "Especialidade";
+            this.columnHeader4.Width = 92;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Medico";
+            this.columnHeader5.Width = 122;
             // 
             // Marcar_consulta
             // 

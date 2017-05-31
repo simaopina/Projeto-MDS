@@ -18,6 +18,19 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             ListaMedico = new List<Medico>();
+
+
+            foreach (Medico medico in ListaMedico)
+            {
+                ListViewItem ItemMedico = new ListViewItem(medico.Nome);
+                ItemMedico.SubItems.Add(medico.Especialidade);
+                ItemMedico.SubItems.Add(medico.NIF.ToString());
+                ItemMedico.SubItems.Add(medico.Inicio.ToShortTimeString());
+                ItemMedico.SubItems.Add(medico.Fim.ToShortTimeString());
+
+                listVMedico.Items.Add(ItemMedico);
+            }
+            
         }
 
 
@@ -76,7 +89,13 @@ namespace WindowsFormsApplication1
 
             foreach (Medico medico in ListaMedico)
             {
-                listVMedico.Items.Add(medico.ToString());
+                ListViewItem ItemMedico = new ListViewItem(medico.Nome);
+                ItemMedico.SubItems.Add(medico.Especialidade);
+                ItemMedico.SubItems.Add(medico.NIF.ToString());
+                ItemMedico.SubItems.Add(medico.Inicio.ToShortTimeString());
+                ItemMedico.SubItems.Add(medico.Fim.ToShortTimeString());
+
+                listVMedico.Items.Add(ItemMedico);
             }
         }
 
