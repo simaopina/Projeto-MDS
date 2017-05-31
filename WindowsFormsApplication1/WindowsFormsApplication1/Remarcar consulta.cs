@@ -57,7 +57,7 @@ namespace WindowsFormsApplication1
             ListaConsulta[consultaSelected].Hora = dateTHora.Value;
             ListaConsulta[consultaSelected].Dia = dateTiDia.Value;
             ListaConsulta[consultaSelected].Especialidade = cbxEspecialidade.Text;
-            ListaConsulta[consultaSelected].Medico = cbxMedico.Text;
+            //ListaConsulta[consultaSelected].Medico = cbxMedico.Text;
 
                 RefreshListaConsultas();
             }
@@ -96,7 +96,7 @@ namespace WindowsFormsApplication1
 
 
 
-                listVRemarcar.Items.Add();
+               // listVRemarcar.Items.Add();
                 
             }
         }

@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
             DateTime dia = dateTimeDia.Value;
             DateTime hora = dateTimeHora.Value;
             string especialidade = cmbEsp.SelectedItem.ToString();
-            Medico medico = cmbMedico.SelectedItem;
+            //Medico medico = cmbMedico.SelectedItem;
 
             if (consultaSelecionada == -1)
             {
@@ -78,8 +78,8 @@ namespace WindowsFormsApplication1
                     nome,
                     dia,
                     hora,
-                    especialidade,
-                    medico.
+                    especialidade
+                 //   medico.
                     );
 
 
