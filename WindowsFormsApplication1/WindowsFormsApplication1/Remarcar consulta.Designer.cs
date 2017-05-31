@@ -47,6 +47,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.listVRemarcar = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label7
@@ -214,12 +219,39 @@
             // 
             // listVRemarcar
             // 
+            this.listVRemarcar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
             this.listVRemarcar.Location = new System.Drawing.Point(13, 224);
             this.listVRemarcar.Name = "listVRemarcar";
             this.listVRemarcar.Size = new System.Drawing.Size(529, 111);
             this.listVRemarcar.TabIndex = 51;
             this.listVRemarcar.UseCompatibleStateImageBehavior = false;
+            this.listVRemarcar.View = System.Windows.Forms.View.Details;
             this.listVRemarcar.SelectedIndexChanged += new System.EventHandler(this.listVRemarcar_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Dia";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Hora";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Especialidade";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Medico";
             // 
             // Remarcar_consulta
             // 
@@ -274,5 +306,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListView listVRemarcar;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
