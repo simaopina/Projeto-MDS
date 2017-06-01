@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BasemdsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="BasemdsModelStoreContainer">
+    <EntitySet Name="ConsultaSet" EntityType="BasemdsModel.Store.ConsultaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MedicoSet" EntityType="BasemdsModel.Store.MedicoSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MedicoConsulta" Association="BasemdsModel.Store.MedicoConsulta">
+      <End Role="Medico" EntitySet="MedicoSet" />
+      <End Role="Consulta" EntitySet="ConsultaSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ConsultaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_paciente" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dia" Type="datetime" Nullable="false" />
+    <Property Name="hora" Type="datetime" Nullable="false" />
+    <Property Name="especialidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MedicoId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="especialidade" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nif" Type="int" Nullable="false" />
+    <Property Name="hora_inicio" Type="datetime" Nullable="false" />
+    <Property Name="hora_fim" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="MedicoConsulta">
+    <End Role="Medico" Type="BasemdsModel.Store.MedicoSet" Multiplicity="1" />
+    <End Role="Consulta" Type="BasemdsModel.Store.ConsultaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Consulta">
+        <PropertyRef Name="MedicoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BasemdsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BasemdsEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="ConsultaSet" EntityType="BasemdsModel.Consulta" />
+          <EntitySet Name="MedicoSet" EntityType="BasemdsModel.Medico" />
+          <AssociationSet Name="MedicoConsulta" Association="BasemdsModel.MedicoConsulta">
+            <End Role="Medico" EntitySet="MedicoSet" />
+            <End Role="Consulta" EntitySet="ConsultaSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Consulta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome_paciente" Type="String" Nullable="false" />
+          <Property Name="dia" Type="DateTime" Nullable="false" />
+          <Property Name="hora" Type="DateTime" Nullable="false" />
+          <Property Name="especialidade" Type="String" Nullable="false" />
+          <NavigationProperty Name="Medico" Relationship="BasemdsModel.MedicoConsulta" FromRole="Consulta" ToRole="Medico" />
+          <Property Name="MedicoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medico">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" />
+          <Property Name="especialidade" Type="String" Nullable="false" />
+          <Property Name="nif" Type="Int32" Nullable="false" />
+          <Property Name="hora_inicio" Type="DateTime" Nullable="false" />
+          <Property Name="hora_fim" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Consulta" Relationship="BasemdsModel.MedicoConsulta" FromRole="Medico" ToRole="Consulta" />
+        </EntityType>
+        <Association Name="MedicoConsulta">
+          <End Type="BasemdsModel.Medico" Role="Medico" Multiplicity="1" />
+          <End Type="BasemdsModel.Consulta" Role="Consulta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medico">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Consulta">
+              <PropertyRef Name="MedicoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BasemdsModelStoreContainer" CdmEntityContainer="BasemdsEntities">
+    <EntitySetMapping Name="ConsultaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BasemdsModel.Consulta)">
+        <MappingFragment StoreEntitySet="ConsultaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome_paciente" ColumnName="nome_paciente" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="especialidade" ColumnName="especialidade" />
+          <ScalarProperty Name="MedicoId" ColumnName="MedicoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedicoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(BasemdsModel.Medico)">
+        <MappingFragment StoreEntitySet="MedicoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="especialidade" ColumnName="especialidade" />
+          <ScalarProperty Name="nif" ColumnName="nif" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="hora_fim" ColumnName="hora_fim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

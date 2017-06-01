@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
     public partial class Inserir_Medico : Form
     {
-        private List<Medico> ListaMedico;
+        Medico medico = null;
+
+         public BasemdsEntities container = new BasemdsEntities();
 
         public Inserir_Medico()
         {
