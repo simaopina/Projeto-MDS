@@ -11,8 +11,6 @@ namespace WindowsFormsApplication1
         public string Nome { get; set; }
         public string Especialidade { get; set; }
 
-        //private string _nome;
-        private string _especialidade;
         private int _NIF;
         private DateTime _inicio;
         private DateTime _fim;
@@ -50,6 +48,8 @@ namespace WindowsFormsApplication1
 
 
         public Medico(string nome, string especialidade, int _NIF, DateTime _inicio, DateTime _fim)
+            : this(nome, especialidade, _NIF, _inicio, _fim)
+
         {
             Nome = nome;
             Especialidade = especialidade;
@@ -58,6 +58,11 @@ namespace WindowsFormsApplication1
             Fim = _fim;
 
         }
+
+        /*public Medico(string nome, string especialidade, int _NIF, string _inicio, string _fim)
+            : this(nome, especialidade, _NIF, _inicio, _fim) {}*/
+
+
 
         public override string ToString()
         {

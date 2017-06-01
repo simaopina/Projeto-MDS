@@ -21,7 +21,6 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
 
-            Medico medico;
 
            ListaConsulta = new List<Consulta>();
 
