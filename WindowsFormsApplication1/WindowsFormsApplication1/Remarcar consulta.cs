@@ -12,16 +12,13 @@ namespace WindowsFormsApplication1
 {
     public partial class Remarcar_consulta : Form
     {
+        public BasemdsEntities container = new BasemdsEntities();
         public int consultaSelected = 0;
-        List<Consulta> ListaConsulta;
-        List<Medico> ListaMedico;
-         
+     
         public Remarcar_consulta()
         {
             InitializeComponent();
-
-            List<Consulta> ListaConsulta = new List<Consulta>();
-            List<Medico> ListaMedico = new List<Medico>();
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
 
 
             cbxMedico.Items.AddRange(ListaMedico.ToArray());
@@ -53,12 +50,7 @@ namespace WindowsFormsApplication1
 
             if (consultaSelected != -1)
             {
-            ListaConsulta[consultaSelected].Nome_Paciente = tbxNomepaciente.Text;
-            ListaConsulta[consultaSelected].Hora = dateTHora.Value;
-            ListaConsulta[consultaSelected].Dia = dateTiDia.Value;
-            ListaConsulta[consultaSelected].Especialidade = cbxEspecialidade.Text;
-            //ListaConsulta[consultaSelected].Medico = cbxMedico.Text;
-
+        
                 RefreshListaConsultas();
             }
             else
@@ -73,11 +65,7 @@ namespace WindowsFormsApplication1
             {
                 consultaSelected = listVRemarcar.SelectedItems[0].Index;
 
-                tbxNomepaciente.Text = ListaConsulta[consultaSelected].Nome_Paciente.ToString();
-                dateTHora.Value = ListaConsulta[consultaSelected].Hora;
-                dateTiDia.Value = ListaConsulta[consultaSelected].Dia;
-                cbxEspecialidade.Text = ListaConsulta[consultaSelected].Especialidade.ToString();
-                cbxMedico.Text = ListaConsulta[consultaSelected].Medico.ToString();
+            
 
             }
         }
@@ -86,13 +74,15 @@ namespace WindowsFormsApplication1
         {
             listVRemarcar.Items.Clear();
 
-            foreach (Consulta consulta in ListaConsulta)
+            List<Consulta> ListConsulta = container.ConsultaSet.ToList();
+
+            foreach (Consulta consulta in ListConsulta)
             {
-                ListViewItem item = new ListViewItem(consulta.Nome_Paciente);
-                item.SubItems.Add(consulta.Dia.ToShortDateString());
-                item.SubItems.Add(consulta.Hora.ToShortTimeString());
-                item.SubItems.Add(consulta.Especialidade);
-                item.SubItems.Add(consulta.Medico.ToString());
+                ListViewItem item = new ListViewItem(consulta.nome_paciente);
+                item.SubItems.Add(consulta.dia.ToShortDateString());
+                item.SubItems.Add(consulta.hora.ToShortTimeString());
+                item.SubItems.Add(consulta.especialidade);
+                item.SubItems.Add(consulta.Medico.nome.ToString());
 
 
 

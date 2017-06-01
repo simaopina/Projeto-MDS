@@ -20,16 +20,16 @@ namespace WindowsFormsApplication1
         public Inserir_Medico()
         {
             InitializeComponent();
-            ListaMedico = new List<Medico>();
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
 
 
             foreach (Medico medico in ListaMedico)
             {
-                ListViewItem ItemMedico = new ListViewItem(medico.Nome);
-                ItemMedico.SubItems.Add(medico.Especialidade);
-                ItemMedico.SubItems.Add(medico.NIF.ToString());
-                ItemMedico.SubItems.Add(medico.Inicio.ToShortTimeString());
-                ItemMedico.SubItems.Add(medico.Fim.ToShortTimeString());
+                ListViewItem ItemMedico = new ListViewItem(medico.nome);
+                ItemMedico.SubItems.Add(medico.especialidade);
+                ItemMedico.SubItems.Add(medico.nif.ToString());
+                ItemMedico.SubItems.Add(medico.hora_inicio.ToShortTimeString());
+                ItemMedico.SubItems.Add(medico.hora_fim.ToShortTimeString());
 
                 listVMedico.Items.Add(ItemMedico);
             }
@@ -45,13 +45,7 @@ namespace WindowsFormsApplication1
             Close();
         }
 
-        public void SetMyCustomFormat()
-        {
-            datetimeInicio.Format = DateTimePickerFormat.Custom;
-            datetimeInicio.CustomFormat = "hh:mm";
-            datetimeFim.Format = DateTimePickerFormat.Custom;
-            datetimeFim.CustomFormat = "hh:mm";
-        }
+      
 
 
 
@@ -63,15 +57,17 @@ namespace WindowsFormsApplication1
             DateTime Inicio = datetimeInicio.Value;
             DateTime Fim = datetimeFim.Value;
 
-            Medico medico = new Medico
-            (
-                Nome,
-                Especialidade,
-                NIF,
-                Inicio,
-                Fim
-            );
-            ListaMedico.Add(medico);
+            Medico medico = new Medico()
+            {
+                nome = Nome,
+                especialidade = Especialidade,
+                nif = NIF,
+                hora_inicio = Inicio,
+                hora_fim = Fim
+
+            };
+
+            container.MedicoSet.Add(medico);
             RefreshCampos();
             RefreshListaMedicos();
 
@@ -89,14 +85,15 @@ namespace WindowsFormsApplication1
         private void RefreshListaMedicos()
         {
             listVMedico.Items.Clear();
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
 
             foreach (Medico medico in ListaMedico)
             {
-                ListViewItem ItemMedico = new ListViewItem(medico.Nome);
-                ItemMedico.SubItems.Add(medico.Especialidade);
-                ItemMedico.SubItems.Add(medico.NIF.ToString());
-                ItemMedico.SubItems.Add(medico.Inicio.ToShortTimeString());
-                ItemMedico.SubItems.Add(medico.Fim.ToShortTimeString());
+                ListViewItem ItemMedico = new ListViewItem(medico.nome);
+                ItemMedico.SubItems.Add(medico.especialidade);
+                ItemMedico.SubItems.Add(medico.nif.ToString());
+                ItemMedico.SubItems.Add(medico.hora_inicio.ToShortTimeString());
+                ItemMedico.SubItems.Add(medico.hora_inicio.ToShortTimeString());
 
                 listVMedico.Items.Add(ItemMedico);
             }

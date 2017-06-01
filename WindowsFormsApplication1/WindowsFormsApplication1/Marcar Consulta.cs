@@ -15,6 +15,8 @@ namespace WindowsFormsApplication1
 
         List<Consulta> ListaConsulta;
 
+        public BasemdsEntities container = new BasemdsEntities();
+
         int consultaSelecionada = -1;
 
         public Marcar_consulta()
@@ -24,15 +26,15 @@ namespace WindowsFormsApplication1
 
            ListaConsulta = new List<Consulta>();
 
-            List<Medico> listMedico = ListaConsulta.OfType<Medico>().ToList();
+            List<Medico> listMedico = container.MedicoSet.ToList();
 
             foreach (Consulta consulta in ListaConsulta)
             {
-                ListViewItem ItemConsulta = new ListViewItem(consulta.Nome_Paciente);
-                ItemConsulta.SubItems.Add(consulta.Dia.ToShortDateString());
-                ItemConsulta.SubItems.Add(consulta.Hora.ToShortTimeString());
-                ItemConsulta.SubItems.Add(consulta.Especialidade);
-                ItemConsulta.SubItems.Add(consulta.Medico.Nome);
+                ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
+                ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
+                ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
+                ItemConsulta.SubItems.Add(consulta.especialidade);
+                ItemConsulta.SubItems.Add(consulta.Medico.nome.ToString());
 
                 listVConsultas.Items.Add(ItemConsulta);
             }
@@ -40,7 +42,7 @@ namespace WindowsFormsApplication1
 
             foreach (Medico pmedico in listMedico)
             {
-                cmbMedico.Items.Add(pmedico.Nome.ToString());
+                cmbMedico.Items.Add(pmedico.Id.ToString());
             }
 
 
@@ -63,23 +65,23 @@ namespace WindowsFormsApplication1
         private void btnInserir_Click(object sender, EventArgs e)
         {
 
-         Medico Medicos;
-
             string nome = txtNome.Text;
             DateTime dia = dateTimeDia.Value;
             DateTime hora = dateTimeHora.Value;
             string especialidade = cmbEsp.SelectedItem.ToString();
-            //Medico medico = cmbMedico.SelectedItem;
+            int medico = Convert.ToInt32(cmbMedico.Text);
 
             if (consultaSelecionada == -1)
             {
-                Consulta list = new Consulta(
-                    nome,
-                    dia,
-                    hora,
-                    especialidade
-                 //   medico.
-                    );
+                Consulta list = new Consulta {
+                    nome_paciente = nome,
+                    dia = dia,
+                    hora = hora,
+                    especialidade = especialidade,
+                    MedicoId  = medico
+                                
+                    
+                };
 
 
                 ListaConsulta.Add(list);
@@ -97,7 +99,7 @@ namespace WindowsFormsApplication1
         public void RefreshCampos()
         {
             txtNome.ResetText();
-            //dateTimeDia.Value = DateTime.Now;
+            dateTimeDia.Value = DateTime.Now;
             dateTimeHora.Value = DateTime.Now;
             cmbEsp.SelectedIndex = -1;
         }
