@@ -21,12 +21,29 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
 
-            ListaConsulta = new List<Consulta>();
+
+           ListaConsulta = new List<Consulta>();
+
+            List<Medico> listMedico = ListaConsulta.OfType<Medico>().ToList();
 
             foreach (Consulta consulta in ListaConsulta)
             {
-                listVConsultas.Items.Add(consulta.ToString());
+                ListViewItem ItemConsulta = new ListViewItem(consulta.Nome_Paciente);
+                ItemConsulta.SubItems.Add(consulta.Dia.ToShortDateString());
+                ItemConsulta.SubItems.Add(consulta.Hora.ToShortTimeString());
+                ItemConsulta.SubItems.Add(consulta.Especialidade);
+                ItemConsulta.SubItems.Add(consulta.Medico.Nome);
+
+                listVConsultas.Items.Add(ItemConsulta);
             }
+
+
+            foreach (Medico pmedico in listMedico)
+            {
+                cmbMedico.Items.Add(pmedico.Nome.ToString());
+            }
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,19 +62,25 @@ namespace WindowsFormsApplication1
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
+
+         Medico Medicos;
+
             string nome = txtNome.Text;
-            string dia = dateTimeDia.Text;
+            DateTime dia = dateTimeDia.Value;
             DateTime hora = dateTimeHora.Value;
             string especialidade = cmbEsp.SelectedItem.ToString();
+            //Medico medico = cmbMedico.SelectedItem;
 
             if (consultaSelecionada == -1)
             {
                 Consulta list = new Consulta(
-                    nome, 
-                    dia, 
+                    nome,
+                    dia,
                     hora,
                     especialidade
+                 //   medico.
                     );
+
 
                 ListaConsulta.Add(list);
 

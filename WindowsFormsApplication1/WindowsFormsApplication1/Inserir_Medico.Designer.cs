@@ -49,6 +49,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.listVMedico = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label2
@@ -236,12 +241,42 @@
             // 
             // listVMedico
             // 
+            this.listVMedico.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
             this.listVMedico.Location = new System.Drawing.Point(16, 230);
             this.listVMedico.Name = "listVMedico";
             this.listVMedico.Size = new System.Drawing.Size(526, 105);
             this.listVMedico.TabIndex = 53;
             this.listVMedico.UseCompatibleStateImageBehavior = false;
-            this.listVMedico.View = System.Windows.Forms.View.List;
+            this.listVMedico.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Nome";
+            this.columnHeader1.Width = 111;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Especialidade";
+            this.columnHeader2.Width = 113;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "NIF";
+            this.columnHeader3.Width = 84;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Hora Início";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Hora Fim";
+            this.columnHeader5.Width = 68;
             // 
             // Inserir_Medico
             // 
@@ -297,5 +332,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ListView listVMedico;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
