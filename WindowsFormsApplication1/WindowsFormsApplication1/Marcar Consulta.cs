@@ -13,45 +13,17 @@ namespace WindowsFormsApplication1
     public partial class Marcar_consulta : Form
     {
 
-        List<Consulta> ListaConsulta;
-
-        Medico medicoselecionado = null;
-
-        Consulta consultaSelecionada = null;
-
         public DiagramaMDSContainer1 container = new DiagramaMDSContainer1();
 
-       // int consultaSelecionada = -1;
+        Medico medicoselecionado = null;
 
         public Marcar_consulta()
         {
             InitializeComponent();
 
+            List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
+
             carregarDados();
-
-
-            /*ListaConsulta = new List<Consulta>();
-
-             List<Medico> listMedico = container.MedicoSet.ToList();
-
-             foreach (Consulta consulta in ListaConsulta)
-             {
-                 ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
-                 ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
-                 ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
-                 ItemConsulta.SubItems.Add(consulta.especialidade);
-                 ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
-
-                 listVConsultas.Items.Add(ItemConsulta);
-             }
-
-             RefreshListaConsulta();
-
-             foreach (Medico pmedico in listMedico)
-             {
-                 cmbMedico.Items.Add(pmedico.nome);
-             }*/
-
 
         }
 
@@ -60,11 +32,9 @@ namespace WindowsFormsApplication1
 
             List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
 
-            List<Medico> listMedico = container.MedicoSet.ToList();
-
             foreach (Consulta consulta in ListaConsulta)
             {
-                listVConsultas.Items.Clear();
+                //listVConsultas.Items.Clear();
                 ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
                 ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
                 ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
@@ -74,7 +44,9 @@ namespace WindowsFormsApplication1
                 listVConsultas.Items.Add(ItemConsulta);
             }
 
-           // RefreshListaConsulta();
+            // RefreshListaConsulta();
+
+            List<Medico> listMedico = container.MedicoSet.ToList();
 
             foreach (Medico pmedico in listMedico)
             {
@@ -102,6 +74,7 @@ namespace WindowsFormsApplication1
         {
 
             List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
 
             string nome = txtNome.Text;
             DateTime dia = dateTimeDia.Value;
@@ -121,12 +94,12 @@ namespace WindowsFormsApplication1
                 };
 
 
-                ListaConsulta.Add(list);
+            container.ConsultaSet.Add(list);
                 container.SaveChanges();
 
                 RefreshCampos();
 
-                carregarDados();
+                RefreshListaConsulta();
 
             //}
 
@@ -147,6 +120,7 @@ namespace WindowsFormsApplication1
         private void RefreshListaConsulta()
         {
             listVConsultas.Items.Clear();
+            List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
             foreach (Consulta consulta in ListaConsulta)
             {
                 ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
