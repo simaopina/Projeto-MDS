@@ -136,8 +136,14 @@ namespace WindowsFormsApplication1
                 //throw;
             }
             return resultado;
-           
-
         }
+
+        //----------------------------- teste unitário:
+        /*testUnitInserirMedico()
+        {
+            Inserir_Medico insMedico = new Inserir_Medico();
+            
+            Assert.IsTrue(insMedico.InserirMedico('Joana', 'Dentista', 9146482646, 12/05/2012, 13/09/2016));
+        }*/
     }
 }

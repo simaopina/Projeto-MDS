@@ -68,30 +68,30 @@ namespace WindowsFormsApplication1
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-             string nome_paciente = tbxNomepaciente.Text;
-             DateTime dia = dateTiDia.Value;
-             DateTime hora = dateTHora.Value;
-             string especialidade = cbxEspecialidade.Text;
+            string nome_paciente = tbxNomepaciente.Text;
+            DateTime dia = dateTiDia.Value;
+            DateTime hora = dateTHora.Value;
+            string especialidade = cbxEspecialidade.Text;
             Medico medico = container.MedicoSet.Where(doc => doc.nome.Equals(cbxMedico.Text)).First();
 
             List<Consulta> ListConsulta = container.ConsultaSet.ToList();
 
-            if (consultaSelected != null)
-            {
-                consultaSelected.nome_paciente = nome_paciente;
-                consultaSelected.dia = dia;
-                consultaSelected.hora = hora;
-                consultaSelected.especialidade = especialidade;
-                consultaSelected.Medico = medico;
 
-                RefreshListaConsultas();
-                LimparCampos();
+            if (Remarcar_Consulta(nome_paciente, dia, hora, especialidade, medico))
+            {
+                MessageBox.Show("Inserido");
             }
+
             else
             {
-                MessageBox.Show("Não existe essa consulta. Se quiser inserir consultas novas dirija-se ao 'Marcar Consulta'");
+                MessageBox.Show("Erro");
             }
+
+
+            RefreshListaConsultas();
+            LimparCampos();
         }
+        
 
         private void listVRemarcar_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -150,5 +150,34 @@ namespace WindowsFormsApplication1
         {
             //RefreshListaConsultas();
         }
-    }
+
+        public bool Remarcar_Consulta(string nome, DateTime dia, DateTime hora, string especialidade, Medico medico)
+        {
+            bool resultado;
+
+            try
+            {
+                Consulta list = new Consulta
+                {
+                    nome_paciente = nome,
+                    dia = dia,
+                    hora = hora,
+                    especialidade = especialidade,
+                    MedicoId = medico
+                };
+
+                container.ConsultaSet.Add(list);
+                container.SaveChanges();
+
+                resultado = true;
+            }
+            catch (Exception)
+            {
+                resultado = false;
+                //throw;
+                
+            }
+            return resultado;
+        }
+     }
 }
