@@ -82,29 +82,21 @@ namespace WindowsFormsApplication1
             string especialidade = cmbEsp.SelectedItem.ToString();
             int medico = Convert.ToInt32(numericUpDown1.Value);
 
-            //if (consultaSelecionada != null)
-            //{
-                Consulta list = new Consulta {
-                    nome_paciente = nome,
-                    dia = dia,
-                    hora = hora,
-                    especialidade = especialidade,
-                    MedicoId  = medico              
-                    
-                };
-
-
-            container.ConsultaSet.Add(list);
-                container.SaveChanges();
-
-                RefreshCampos();
-
-                RefreshListaConsulta();
-
-            //}
+            if (MarcarConsulta(nome, dia, hora, especialidade, medico))
+            {
+                MessageBox.Show("Inserido");
+            }
+            else
+            {
+                MessageBox.Show("Erro");
+            }
+            RefreshCampos();
+            RefreshListaConsulta();
 
 
         }
+
+
 
 
         public void RefreshCampos()
@@ -151,6 +143,40 @@ namespace WindowsFormsApplication1
                 numericUpDown1.Value = medicoselecionado.Id;
                 
             }
+        }
+
+        public bool MarcarConsulta(string nome, DateTime dia, DateTime hora, string especialidade, int medico )
+        {
+
+            bool resultado;
+
+            try
+            {
+                Consulta list = new Consulta
+                {
+                    nome_paciente = nome,
+                    dia = dia,
+                    hora = hora,
+                    especialidade = especialidade,
+                    MedicoId = medico
+
+                };
+
+
+                container.ConsultaSet.Add(list);
+                container.SaveChanges();
+
+                resultado = true;
+                
+            }
+            catch (Exception)
+            {
+                resultado = false;
+                //throw;
+            }
+
+            return resultado;
+           
         }
     }
 }
