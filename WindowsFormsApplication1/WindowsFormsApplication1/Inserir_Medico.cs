@@ -13,17 +13,16 @@ namespace WindowsFormsApplication1
 {
     public partial class Inserir_Medico : Form
     {
-        Medico medico = null;
-
+       
          public BasemdsEntities container = new BasemdsEntities();
 
         public Inserir_Medico()
         {
             InitializeComponent();
-            List<Medico> ListaMedico = container.MedicoSet.ToList();
+            //List<Medico> ListaMedico = container.MedicoSet.ToList();
 
 
-            foreach (Medico medico in ListaMedico)
+            foreach (Medico medico in container.MedicoSet)
             {
                 ListViewItem ItemMedico = new ListViewItem(medico.nome);
                 ItemMedico.SubItems.Add(medico.especialidade);
