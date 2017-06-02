@@ -12,7 +12,7 @@ namespace WindowsFormsApplication1
 {
     public partial class Remarcar_consulta : Form
     {
-        public BasemdsEntities container = new BasemdsEntities();
+        public DiagramaMDSContainer1 container = new DiagramaMDSContainer1();
         Consulta consultaSelected;
      
         public Remarcar_consulta()

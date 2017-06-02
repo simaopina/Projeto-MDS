@@ -15,36 +15,72 @@ namespace WindowsFormsApplication1
 
         List<Consulta> ListaConsulta;
 
-        public BasemdsEntities container = new BasemdsEntities();
+        Medico medicoselecionado = null;
 
-        int consultaSelecionada = -1;
+        Consulta consultaSelecionada = null;
+
+        public DiagramaMDSContainer1 container = new DiagramaMDSContainer1();
+
+       // int consultaSelecionada = -1;
 
         public Marcar_consulta()
         {
             InitializeComponent();
 
+            carregarDados();
 
-           ListaConsulta = new List<Consulta>();
+
+            /*ListaConsulta = new List<Consulta>();
+
+             List<Medico> listMedico = container.MedicoSet.ToList();
+
+             foreach (Consulta consulta in ListaConsulta)
+             {
+                 ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
+                 ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
+                 ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
+                 ItemConsulta.SubItems.Add(consulta.especialidade);
+                 ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
+
+                 listVConsultas.Items.Add(ItemConsulta);
+             }
+
+             RefreshListaConsulta();
+
+             foreach (Medico pmedico in listMedico)
+             {
+                 cmbMedico.Items.Add(pmedico.nome);
+             }*/
+
+
+        }
+
+        public void carregarDados()
+        {
+
+            List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
 
             List<Medico> listMedico = container.MedicoSet.ToList();
 
             foreach (Consulta consulta in ListaConsulta)
             {
+                listVConsultas.Items.Clear();
                 ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
                 ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
                 ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
                 ItemConsulta.SubItems.Add(consulta.especialidade);
-                ItemConsulta.SubItems.Add(consulta.Medico.nome.ToString());
+                ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
 
                 listVConsultas.Items.Add(ItemConsulta);
             }
 
+           // RefreshListaConsulta();
 
             foreach (Medico pmedico in listMedico)
             {
-                cmbMedico.Items.Add(pmedico.Id.ToString());
+                cmbMedico.Items.Add(pmedico.nome);
             }
-
+            
 
         }
 
@@ -65,32 +101,34 @@ namespace WindowsFormsApplication1
         private void btnInserir_Click(object sender, EventArgs e)
         {
 
+            List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
+
             string nome = txtNome.Text;
             DateTime dia = dateTimeDia.Value;
             DateTime hora = dateTimeHora.Value;
             string especialidade = cmbEsp.SelectedItem.ToString();
-            int medico = Convert.ToInt32(cmbMedico.Text);
+            int medico = Convert.ToInt32(numericUpDown1.Value);
 
-            if (consultaSelecionada == -1)
-            {
+            //if (consultaSelecionada != null)
+            //{
                 Consulta list = new Consulta {
                     nome_paciente = nome,
                     dia = dia,
                     hora = hora,
                     especialidade = especialidade,
-                    MedicoId  = medico
-                                
+                    MedicoId  = medico              
                     
                 };
 
 
                 ListaConsulta.Add(list);
+                container.SaveChanges();
 
                 RefreshCampos();
 
-                RefreshListaConsulta();
+                carregarDados();
 
-            }
+            //}
 
 
         }
@@ -109,16 +147,36 @@ namespace WindowsFormsApplication1
         private void RefreshListaConsulta()
         {
             listVConsultas.Items.Clear();
-
-            foreach (Consulta list in ListaConsulta)
+            foreach (Consulta consulta in ListaConsulta)
             {
-                listVConsultas.Items.Add(list.ToString());
+                ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
+                ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
+                ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
+                ItemConsulta.SubItems.Add(consulta.especialidade);
+                ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
+
+                listVConsultas.Items.Add(ItemConsulta);
             }
         }
 
         private void listVConsultas_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void cmbMedico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMedico.Items.Count > 0)
+            {
+                string medic = cmbMedico.Text;
+
+                medicoselecionado = container.MedicoSet.Where(med => med.nome.Equals(medic)).First();
+
+                List<Medico> medico = container.MedicoSet.ToList();
+
+                numericUpDown1.Value = medicoselecionado.Id;
+                
+            }
         }
     }
 }

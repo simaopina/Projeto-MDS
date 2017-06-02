@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/02/2017 10:18:36
+-- Date Created: 06/02/2017 10:37:55
 -- Generated from EDMX file: C:\Users\sawak\Desktop\Ipleiria\2º Semestre\Metodologias de Desenvolvimento de Software\ProjetoMDS\WindowsFormsApplication1\WindowsFormsApplication1\DiagramaMDS.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [Basemds];
+USE [BaseDeDadosMDS];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -17,35 +17,15 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_MedicoConsulta]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ConsultaSet] DROP CONSTRAINT [FK_MedicoConsulta];
-GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[ConsultaSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ConsultaSet];
-GO
-IF OBJECT_ID(N'[dbo].[MedicoSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[MedicoSet];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
-
--- Creating table 'ConsultaSet'
-CREATE TABLE [dbo].[ConsultaSet] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [nome_paciente] nvarchar(max)  NOT NULL,
-    [dia] datetime  NOT NULL,
-    [hora] datetime  NOT NULL,
-    [especialidade] nvarchar(max)  NOT NULL,
-    [MedicoId] int  NOT NULL
-);
-GO
 
 -- Creating table 'MedicoSet'
 CREATE TABLE [dbo].[MedicoSet] (
@@ -58,19 +38,30 @@ CREATE TABLE [dbo].[MedicoSet] (
 );
 GO
 
+-- Creating table 'ConsultaSet'
+CREATE TABLE [dbo].[ConsultaSet] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [nome_paciente] nvarchar(max)  NOT NULL,
+    [dia] datetime  NOT NULL,
+    [hora] datetime  NOT NULL,
+    [especialidade] nvarchar(max)  NOT NULL,
+    [MedicoId] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'ConsultaSet'
-ALTER TABLE [dbo].[ConsultaSet]
-ADD CONSTRAINT [PK_ConsultaSet]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'MedicoSet'
 ALTER TABLE [dbo].[MedicoSet]
 ADD CONSTRAINT [PK_MedicoSet]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'ConsultaSet'
+ALTER TABLE [dbo].[ConsultaSet]
+ADD CONSTRAINT [PK_ConsultaSet]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

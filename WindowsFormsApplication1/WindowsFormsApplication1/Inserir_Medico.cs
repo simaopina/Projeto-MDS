@@ -14,24 +14,16 @@ namespace WindowsFormsApplication1
     public partial class Inserir_Medico : Form
     {
 
-        public BasemdsEntities container = new BasemdsEntities();
+        public DiagramaMDSContainer1 container = new DiagramaMDSContainer1();
 
+        
         public Inserir_Medico()
         {
             InitializeComponent();
-            List<Medico> ListaMedico = container.MedicoSet.ToList();
-           // container = new BasemdsEntities();
+            
+            // container = new BasemdsEntities();
 
-            foreach (Medico medico in container.MedicoSet)
-            {
-                ListViewItem ItemMedico = new ListViewItem(medico.nome);
-                ItemMedico.SubItems.Add(medico.especialidade);
-                ItemMedico.SubItems.Add(medico.nif.ToString());
-                ItemMedico.SubItems.Add(medico.hora_inicio.ToShortTimeString());
-                ItemMedico.SubItems.Add(medico.hora_fim.ToShortTimeString());
-
-                listVMedico.Items.Add(ItemMedico);
-            }
+            carregarDados();
             
         }
 
@@ -45,6 +37,22 @@ namespace WindowsFormsApplication1
         }
 
       
+        public void carregarDados()
+        {
+
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
+            
+            foreach (Medico medico in container.MedicoSet)
+            {
+                ListViewItem ItemMedico = new ListViewItem(medico.nome);
+                ItemMedico.SubItems.Add(medico.especialidade);
+                ItemMedico.SubItems.Add(medico.nif.ToString());
+                ItemMedico.SubItems.Add(medico.hora_inicio.ToShortTimeString());
+                ItemMedico.SubItems.Add(medico.hora_fim.ToShortTimeString());
+
+                listVMedico.Items.Add(ItemMedico);
+            }
+        }
 
 
 
@@ -67,6 +75,7 @@ namespace WindowsFormsApplication1
             };
 
             container.MedicoSet.Add(medico);
+            container.SaveChanges();
             RefreshCampos();
             RefreshListaMedicos();
 

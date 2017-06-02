@@ -13,10 +13,10 @@ namespace WindowsFormsApplication1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BasemdsEntities : DbContext
+    public partial class DiagramaMDSContainer1 : DbContext
     {
-        public BasemdsEntities()
-            : base("name=BasemdsEntities")
+        public DiagramaMDSContainer1()
+            : base("name=DiagramaMDSContainer1")
         {
         }
     
@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Consulta> ConsultaSet { get; set; }
         public DbSet<Medico> MedicoSet { get; set; }
+        public DbSet<Consulta> ConsultaSet { get; set; }
     }
 }

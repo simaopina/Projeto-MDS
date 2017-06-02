@@ -51,6 +51,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -158,6 +160,7 @@
             this.cmbMedico.Name = "cmbMedico";
             this.cmbMedico.Size = new System.Drawing.Size(162, 21);
             this.cmbMedico.TabIndex = 27;
+            this.cmbMedico.SelectedIndexChanged += new System.EventHandler(this.cmbMedico_SelectedIndexChanged);
             // 
             // cmbEsp
             // 
@@ -249,11 +252,20 @@
             this.columnHeader5.Text = "Medico";
             this.columnHeader5.Width = 122;
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(420, 12);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(45, 20);
+            this.numericUpDown1.TabIndex = 54;
+            this.numericUpDown1.Visible = false;
+            // 
             // Marcar_consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 347);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.listVConsultas);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -274,6 +286,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Marcar_consulta";
             this.Text = "Marcar Consulta";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,5 +317,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

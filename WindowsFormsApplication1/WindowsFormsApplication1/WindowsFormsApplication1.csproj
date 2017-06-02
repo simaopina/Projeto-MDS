@@ -168,14 +168,14 @@
     </Content>
     <Content Include="DiagramaMDS.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiagramaMDS.edmx</DependentUpon>
       <LastGenOutput>DiagramaMDS.Context.cs</LastGenOutput>
+      <DependentUpon>DiagramaMDS.edmx</DependentUpon>
     </Content>
     <Content Include="DiagramaMDS.edmx.sql" />
     <Content Include="DiagramaMDS.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DiagramaMDS.edmx</DependentUpon>
       <LastGenOutput>DiagramaMDS.cs</LastGenOutput>
+      <DependentUpon>DiagramaMDS.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
