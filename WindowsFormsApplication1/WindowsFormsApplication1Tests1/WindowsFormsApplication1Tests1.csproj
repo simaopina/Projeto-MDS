@@ -55,6 +55,7 @@
     <Compile Include="Inserir_MedicoTests.cs" />
     <Compile Include="Marcar_consultaTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Remarcar_consultaTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WindowsFormsApplication1\WindowsFormsApplication1.csproj">

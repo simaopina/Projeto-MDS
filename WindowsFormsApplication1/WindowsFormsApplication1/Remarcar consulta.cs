@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
             List<Consulta> ListConsulta = container.ConsultaSet.ToList();
 
 
-            if (Remarcar_Consulta(nome_paciente, dia, hora, especialidade, medico))
+            if (RemarcarConsulta(nome_paciente, dia, hora, especialidade, medico))
             {
                 MessageBox.Show("Inserido");
             }
@@ -151,7 +151,7 @@ namespace WindowsFormsApplication1
             //RefreshListaConsultas();
         }
 
-        public bool Remarcar_Consulta(string nome, DateTime dia, DateTime hora, string especialidade, Medico medico)
+        public bool RemarcarConsulta(string nome, DateTime dia, DateTime hora, string especialidade, Medico medico)
         {
             bool resultado;
 

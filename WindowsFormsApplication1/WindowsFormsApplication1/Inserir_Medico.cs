@@ -114,20 +114,28 @@ namespace WindowsFormsApplication1
 
             try
             {
-                Medico medico = new Medico()
+                if(NIF.ToString().Length == 9)
                 {
-                    nome = Nome,
-                    especialidade = Especialidade,
-                    nif = NIF,
-                    hora_inicio = Inicio,
-                    hora_fim = Fim
+                    Medico medico = new Medico()
+                    {
+                        nome = Nome,
+                        especialidade = Especialidade,
+                        nif = NIF,
+                        hora_inicio = Inicio,
+                        hora_fim = Fim
 
-                };
+                    };
 
-                container.MedicoSet.Add(medico);
-                container.SaveChanges();
+                    container.MedicoSet.Add(medico);
+                    container.SaveChanges();
 
-                resultado = true;
+                    resultado = true;
+                }
+                else
+                {
+                    resultado = false;
+                }
+                
             }
             catch (Exception)
             {
