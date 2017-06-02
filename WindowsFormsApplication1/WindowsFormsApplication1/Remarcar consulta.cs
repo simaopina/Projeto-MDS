@@ -18,12 +18,30 @@ namespace WindowsFormsApplication1
         public Remarcar_consulta()
         {
             InitializeComponent();
+
             List<Medico> ListaMedico = container.MedicoSet.ToList();
 
-
-            cbxMedico.Items.AddRange(ListaMedico.ToArray());
+            // cbxMedico.Items.AddRange(ListaMedico.ToArray());
+            carregarDados();
         }
 
+        public void carregarDados()
+        {
+            List<Consulta> ListaConsulta = container.ConsultaSet.ToList();
+
+            foreach (Consulta consulta in ListaConsulta)
+            {
+                //listVConsultas.Items.Clear();
+                ListViewItem ItemConsulta = new ListViewItem(consulta.nome_paciente);
+                ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
+                ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
+                ItemConsulta.SubItems.Add(consulta.especialidade);
+                ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
+
+                listVRemarcar.Items.Add(ItemConsulta);
+            }
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Home Hfrm = new Home();
@@ -56,7 +74,7 @@ namespace WindowsFormsApplication1
                 consultaSelected.especialidade = especialidade;
                 consultaSelected.Medico = medico;
                 
-                RefreshListaConsultas();
+carregarDados();
                 LimparCampos();
             }
             else
@@ -81,7 +99,7 @@ namespace WindowsFormsApplication1
                 dateTHora.Text = Convert.ToString(consultaSelected.hora);
                 dateTiDia.Text = Convert.ToString(consultaSelected.dia);
 
-                RefreshListaConsultas();
+                carregarDados();
 
 
 
@@ -120,7 +138,7 @@ namespace WindowsFormsApplication1
 
         private void Remarcar_consulta_Load(object sender, EventArgs e)
         {
-            RefreshListaConsultas();
+            //RefreshListaConsultas();
         }
     }
 }
