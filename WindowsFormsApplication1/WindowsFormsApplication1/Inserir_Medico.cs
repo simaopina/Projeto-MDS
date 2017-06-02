@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
             DateTime Inicio = datetimeInicio.Value;
             DateTime Fim = datetimeFim.Value;
 
-            if (Inserir_Medico(Nome, Especialidade, NIF, Inicio, Fim))
+            if (InserirMedico(Nome, Especialidade, NIF, Inicio, Fim))
             {
                 MessageBox.Show("Inserido");
             }
@@ -108,7 +108,7 @@ namespace WindowsFormsApplication1
             MessageBox.Show("Este botão não tem evento, visto que pretence a outro caso de uso!");
         }
 
-        private bool Inserir_Medico(string Nome, string Especialidade, int NIF, DateTime Inicio, DateTime Fim)
+        private bool InserirMedico(string Nome, string Especialidade, int NIF, DateTime Inicio, DateTime Fim)
         {
             bool resultado;
 
