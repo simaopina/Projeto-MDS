@@ -32,9 +32,13 @@ namespace WindowsFormsApplication1.Tests
         [TestMethod()]
         public void MarcarConsultaTest()
         {
-            Consulta consulta = new Consulta { nome_paciente = "antonio", especialidade = "Psicologia", dia = Convert.ToDateTime("12/12/2016"), hora = Convert.ToDateTime("14:00:00"), MedicoId = 1 };
+            DateTime data = Convert.ToDateTime("12/12/2016");
+            Consulta consulta = new Consulta { nome_paciente = "antonio", especialidade = "Psicologia", dia = data , hora = Convert.ToDateTime("14:00:00"), MedicoId = 1 };
 
-            Assert.Fail();
+            if (DateTime.Compare(data, DateTime.Now) <= 0)
+            {
+             Assert.Fail();
+            }
         }
     }
 }
