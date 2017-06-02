@@ -108,7 +108,7 @@ namespace WindowsFormsApplication1
             MessageBox.Show("Este botão não tem evento, visto que pretence a outro caso de uso!");
         }
 
-        private bool InserirMedico(string Nome, string Especialidade, int NIF, DateTime Inicio, DateTime Fim)
+        public bool InserirMedico(string Nome, string Especialidade, int NIF, DateTime Inicio, DateTime Fim)
         {
             bool resultado;
 

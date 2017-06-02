@@ -163,7 +163,7 @@ namespace WindowsFormsApplication1
                     dia = dia,
                     hora = hora,
                     especialidade = especialidade,
-                    MedicoId = medico
+                    MedicoId = medico.Id
                 };
 
                 container.ConsultaSet.Add(list);
