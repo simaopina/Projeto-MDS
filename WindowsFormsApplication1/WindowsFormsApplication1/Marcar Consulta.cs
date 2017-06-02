@@ -147,33 +147,46 @@ namespace WindowsFormsApplication1
 
         public bool MarcarConsulta(string nome, DateTime dia, DateTime hora, string especialidade, int medico )
         {
+            
+            bool resultado = false;
 
-            bool resultado;
-
-            try
-            {
-                Consulta list = new Consulta
+         
+            
+                try
                 {
-                    nome_paciente = nome,
-                    dia = dia,
-                    hora = hora,
-                    especialidade = especialidade,
-                    MedicoId = medico
-
-                };
-
-
-                container.ConsultaSet.Add(list);
-                container.SaveChanges();
-
-                resultado = true;
                 
-            }
-            catch (Exception)
-            {
-                resultado = false;
-                //throw;
-            }
+                if (DateTime.Compare(dateTimeDia.Value, DateTime.Now) >= 0)
+                {
+                    Consulta list = new Consulta
+                    {
+                        nome_paciente = nome,
+                        dia = dia,
+                        hora = hora,
+                        especialidade = especialidade,
+                        MedicoId = medico
+
+                    };
+
+
+                    container.ConsultaSet.Add(list);
+                    container.SaveChanges();
+
+                    resultado = true;
+                }
+                else
+                {
+                    MessageBox.Show("Data invalida");
+                    
+                }
+
+                }
+                catch (Exception)
+                {
+                    
+                    //throw;
+                }
+            
+           
 
             return resultado;
            
