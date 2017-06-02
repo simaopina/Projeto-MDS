@@ -64,18 +64,14 @@ namespace WindowsFormsApplication1
             DateTime Inicio = datetimeInicio.Value;
             DateTime Fim = datetimeFim.Value;
 
-            Medico medico = new Medico()
+            if (InserirMedico(Nome, Especialidade, NIF, Inicio, Fim))
             {
-                nome = Nome,
-                especialidade = Especialidade,
-                nif = NIF,
-                hora_inicio = Inicio,
-                hora_fim = Fim
-
-            };
-
-            container.MedicoSet.Add(medico);
-            container.SaveChanges();
+                MessageBox.Show("Inserido");
+            }
+            else
+            {
+                MessageBox.Show("ERROOOOO");
+            }
             RefreshCampos();
             RefreshListaMedicos();
 
@@ -110,6 +106,38 @@ namespace WindowsFormsApplication1
         private void btnGerir_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Este botão não tem evento, visto que pretence a outro caso de uso!");
+        }
+
+        private bool InserirMedico(string Nome, string Especialidade, int NIF, DateTime Inicio, DateTime Fim)
+        {
+            bool resultado;
+
+            try
+            {
+                Medico medico = new Medico()
+                {
+                    nome = Nome,
+                    especialidade = Especialidade,
+                    nif = NIF,
+                    hora_inicio = Inicio,
+                    hora_fim = Fim
+
+                };
+
+                container.MedicoSet.Add(medico);
+                container.SaveChanges();
+
+                resultado = true;
+            }
+            catch (Exception)
+            {
+                resultado = false;
+         
+                //throw;
+            }
+            return resultado;
+           
+
         }
     }
 }
