@@ -69,11 +69,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasemdsDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BasemdsDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Consulta.cs">
       <DependentUpon>DiagramaMDS.tt</DependentUpon>
     </Compile>
@@ -142,17 +137,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="BasemdsDataSet.xsc">
-      <DependentUpon>BasemdsDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BasemdsDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BasemdsDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BasemdsDataSet.xss">
-      <DependentUpon>BasemdsDataSet.xsd</DependentUpon>
-    </None>
     <EntityDeploy Include="DiagramaMDS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DiagramaMDS.Designer.cs</LastGenOutput>

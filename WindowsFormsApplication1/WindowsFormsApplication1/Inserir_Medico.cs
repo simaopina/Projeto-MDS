@@ -13,14 +13,14 @@ namespace WindowsFormsApplication1
 {
     public partial class Inserir_Medico : Form
     {
-       
-         public BasemdsEntities container ;
+
+        public BasemdsEntities container = new BasemdsEntities();
 
         public Inserir_Medico()
         {
             InitializeComponent();
-            //List<Medico> ListaMedico = container.MedicoSet.ToList();
-            container = new BasemdsEntities();
+            List<Medico> ListaMedico = container.MedicoSet.ToList();
+           // container = new BasemdsEntities();
 
             foreach (Medico medico in container.MedicoSet)
             {
