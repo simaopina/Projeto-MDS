@@ -76,6 +76,10 @@
             // cbxEspecialidade
             // 
             this.cbxEspecialidade.FormattingEnabled = true;
+            this.cbxEspecialidade.Items.AddRange(new object[] {
+            "Cardiologia",
+            "Oftalmologia",
+            "Psiquiatria"});
             this.cbxEspecialidade.Location = new System.Drawing.Point(158, 157);
             this.cbxEspecialidade.Name = "cbxEspecialidade";
             this.cbxEspecialidade.Size = new System.Drawing.Size(143, 21);
@@ -201,10 +205,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("square deal", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(468, -5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 64);
+            this.label10.Size = new System.Drawing.Size(124, 73);
             this.label10.TabIndex = 49;
             this.label10.Text = "CC";
             // 

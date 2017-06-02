@@ -18,6 +18,7 @@ namespace WindowsFormsApplication1
         public Remarcar_consulta()
         {
             InitializeComponent();
+            cbxMedico.Items.Clear();
 
             List<Medico> ListaMedico = container.MedicoSet.ToList();
 
@@ -36,9 +37,18 @@ namespace WindowsFormsApplication1
                 ItemConsulta.SubItems.Add(consulta.dia.ToShortDateString());
                 ItemConsulta.SubItems.Add(consulta.hora.ToShortTimeString());
                 ItemConsulta.SubItems.Add(consulta.especialidade);
-                ItemConsulta.SubItems.Add(consulta.MedicoId.ToString());
+                ItemConsulta.SubItems.Add(consulta.Medico.nome.ToString());
 
                 listVRemarcar.Items.Add(ItemConsulta);
+            }
+
+
+           
+            List<Medico> listMedico = container.MedicoSet.ToList();
+            cbxMedico.Items.Clear();
+            foreach (Medico pmedico in listMedico)
+            {
+                cbxMedico.Items.Add(pmedico.nome);
             }
 
         }
@@ -73,8 +83,8 @@ namespace WindowsFormsApplication1
                 consultaSelected.hora = hora;
                 consultaSelected.especialidade = especialidade;
                 consultaSelected.Medico = medico;
-                
-carregarDados();
+
+                RefreshListaConsultas();
                 LimparCampos();
             }
             else
@@ -99,6 +109,7 @@ carregarDados();
                 dateTHora.Text = Convert.ToString(consultaSelected.hora);
                 dateTiDia.Text = Convert.ToString(consultaSelected.dia);
 
+                listVRemarcar.Items.Clear();
                 carregarDados();
 
 
@@ -121,8 +132,7 @@ carregarDados();
                 item.SubItems.Add(consulta.Medico.nome.ToString());
 
 
-
-               // listVRemarcar.Items.Add();
+                 listVRemarcar.Items.Add(item);
                 
             }
         }
