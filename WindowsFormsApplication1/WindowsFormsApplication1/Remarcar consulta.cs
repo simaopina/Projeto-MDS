@@ -13,7 +13,8 @@ namespace WindowsFormsApplication1
     public partial class Remarcar_consulta : Form
     {
         public DiagramaMDSContainer1 container = new DiagramaMDSContainer1();
-        Consulta consultaSelected;
+
+        public Consulta consultaSelected;
      
         public Remarcar_consulta()
         {
@@ -157,19 +158,23 @@ namespace WindowsFormsApplication1
 
             try
             {
-                Consulta list = new Consulta
+                if (consultaSelected != null)
                 {
-                    nome_paciente = nome,
-                    dia = dia,
-                    hora = hora,
-                    especialidade = especialidade,
-                    MedicoId = medico.Id
-                };
+                    consultaSelected.nome_paciente = nome;
+                    consultaSelected.dia = dia;
+                    consultaSelected.hora = hora;
+                    consultaSelected.especialidade = especialidade;
+                    consultaSelected.MedicoId = medico.Id;
 
-                container.ConsultaSet.Add(list);
-                container.SaveChanges();
+                    container.SaveChanges();
 
-                resultado = true;
+                    resultado = true;
+                }
+                else
+                {
+                    resultado = false;
+                }
+              
             }
             catch (Exception)
             {

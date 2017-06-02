@@ -19,14 +19,32 @@ namespace WindowsFormsApplication1.Tests
             remarcarConsulta.container = new DiagramaMDSContainer1();
 
             string nome_paciente = "Carlos Ribeiro";
-            string medico = "Rita Almada";
+            DateTime dia = DateTime.Now;
+            DateTime hora = DateTime.Now;
             string especialidade = "Oftalmologia";
-            DateTime Inicio = DateTime.Now;
-            DateTime Fim = DateTime.Now;
+            Medico medico = new Medico() {
+                nome = "Alberto Jardim",
+                especialidade = "Oftalmologia",
+                nif = 777777777,
+                hora_inicio = DateTime.Now,
+                hora_fim = DateTime.Now.AddHours(9)
+        };
 
-            Assert.IsTrue(remarcarConsulta.Remarcarconsulta(nome_paciente, medico, especialidade, Inicio, Fim));
+            DateTime data = Convert.ToDateTime("12/12/2017");
+            Consulta consulta = new Consulta { nome_paciente = "antonio", especialidade = "Psicologia", dia = data, hora = Convert.ToDateTime("14:00:00"), MedicoId = 1 };
+
+
+            remarcarConsulta.consultaSelected = consulta;
+
+
+            //1. criar a consulta
+            //2. atribuir a consulta criada ao consultaSelected
+           
+            Assert.IsTrue(remarcarConsulta.RemarcarConsulta(nome_paciente, dia, hora, especialidade, medico));
 
             // Assert.Fail();
         }
+
+
     }
 }
