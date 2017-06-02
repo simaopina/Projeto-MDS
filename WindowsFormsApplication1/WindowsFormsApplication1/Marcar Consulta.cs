@@ -102,6 +102,7 @@ namespace WindowsFormsApplication1
             dateTimeDia.Value = DateTime.Now;
             dateTimeHora.Value = DateTime.Now;
             cmbEsp.SelectedIndex = -1;
+            cmbMedico.ResetText();
         }
 
 

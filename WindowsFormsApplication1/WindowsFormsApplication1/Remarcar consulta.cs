@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class Remarcar_consulta : Form
     {
         public BasemdsEntities container = new BasemdsEntities();
-        public int consultaSelected = 0;
+        Consulta consultaSelected;
      
         public Remarcar_consulta()
         {
@@ -40,18 +40,24 @@ namespace WindowsFormsApplication1
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            /* string nome_paciente = tbxNomepaciente.Text;
+             string nome_paciente = tbxNomepaciente.Text;
              DateTime dia = dateTiDia.Value;
              DateTime hora = dateTHora.Value;
              string especialidade = cbxEspecialidade.Text;
-             string medico = cbxMedico.Text;*/
+            Medico medico = container.MedicoSet.Where(doc => doc.nome.Equals(cbxMedico.Text)).First();
 
-            consultaSelected = listVRemarcar.SelectedItems[0].Index;
+            List<Consulta> ListConsulta = container.ConsultaSet.ToList();
 
-            if (consultaSelected != -1)
+            if (consultaSelected != null)
             {
-        
+                consultaSelected.nome_paciente = nome_paciente;
+                consultaSelected.dia = dia;
+                consultaSelected.hora = hora;
+                consultaSelected.especialidade = especialidade;
+                consultaSelected.Medico = medico;
+                
                 RefreshListaConsultas();
+                LimparCampos();
             }
             else
             {
@@ -63,9 +69,21 @@ namespace WindowsFormsApplication1
         {
             if (listVRemarcar.SelectedItems != null)
             {
-                consultaSelected = listVRemarcar.SelectedItems[0].Index;
 
-            
+                string consultaU = listVRemarcar.SelectedItems[0].Text;
+                consultaSelected = container.ConsultaSet.Where(cons => cons.nome_paciente.Equals(consultaU)).First();
+
+                List<Consulta> ListConsulta = container.ConsultaSet.ToList();
+
+                tbxNomepaciente.Text = consultaSelected.nome_paciente;
+                cbxEspecialidade.Text = consultaSelected.especialidade;
+                cbxMedico.Text = Convert.ToString(consultaSelected.Medico);
+                dateTHora.Text = Convert.ToString(consultaSelected.hora);
+                dateTiDia.Text = Convert.ToString(consultaSelected.dia);
+
+                RefreshListaConsultas();
+
+
 
             }
         }
@@ -89,6 +107,15 @@ namespace WindowsFormsApplication1
                // listVRemarcar.Items.Add();
                 
             }
+        }
+
+        private void LimparCampos()
+        {
+            tbxNomepaciente.ResetText();
+            cbxMedico.ResetText();
+            cbxEspecialidade.ResetText();
+            dateTHora.Value = DateTime.Now;
+            dateTiDia.Value = DateTime.Now;
         }
 
         private void Remarcar_consulta_Load(object sender, EventArgs e)
